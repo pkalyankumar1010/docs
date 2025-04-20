@@ -3,9 +3,15 @@
   "theme": "mint",
   "name": "Mint Starter Kit",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#f95015",
+    "light": "#f95015",
+    "dark": "#f95015"
+  },
+  "background": {
+    "color": {
+      "light": "#FEFCF8",
+      "dark": "#151413"
+    }
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -13,6 +19,19 @@
       {
         "tab": "Guides",
         "groups": [
+          {
+            "group": "Physical Design",
+            "pages": [
+              "physical_design/introduction"
+            ]
+          },
+          {
+            "group": "Java Script",
+            "pages": [
+              "JavaScript/01_Primitives_and_Objects/Data Types"
+            ]
+          },
+          
           {
             "group": "Get Started",
             "pages": [
@@ -76,8 +95,8 @@
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/cropped.svg",
+    "dark": "/logo/cropped.svg"
   },
   "navbar": {
     "links": [
@@ -95,8 +114,9 @@
   "footer": {
     "socials": {
       "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/pkalyankumar1010",
+      "linkedin": "https://www.linkedin.com/in/pkalyankumar1010",
+      "discord": "https://discord.gg/BumZXAR2Ey"
     }
   }
 }
