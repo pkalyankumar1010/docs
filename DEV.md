@@ -5,3 +5,8 @@
 - Removed Empty space with logo with [svgcrop](https://svgcrop.com/)
 
 - Docs to refer : [Atopile](https://github.com/atopile/docs/)
+
+
+## To modify 
+sed -i 's/^#\(.*\)$/---\ntitle: "\1"\n---/' README.mdx
+sed -i '0,/^#\(.*\)$/s//---\ntitle: "\1"\n---/' README.mdx
