@@ -10,3 +10,7 @@
 ## To modify 
 sed -i 's/^#\(.*\)$/---\ntitle: "\1"\n---/' README.mdx
 sed -i '0,/^#\(.*\)$/s//---\ntitle: "\1"\n---/' README.mdx
+
+## For creating flow chats
+used mermaid js to make flow charts
+[Live Editor](https://mermaid.live/edi)
