@@ -13,4 +13,5 @@ sed -i '0,/^#\(.*\)$/s//---\ntitle: "\1"\n---/' README.mdx
 
 ## For creating flow chats
 used mermaid js to make flow charts
+make this diagram as a mermaid js block diagram , make it look good and colorful to visualize
 [Live Editor](https://mermaid.live/edi)
