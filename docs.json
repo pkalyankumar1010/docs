@@ -74,6 +74,26 @@
         ]
       },
       {
+        "tab": "Python",
+        "groups": [
+          {
+            "group": "Package Managers",
+            "pages": [
+              "Python/Using-UV"
+            ]
+          },
+          {
+            "group": "LEC",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete",
+              "api-reference/endpoint/webhook"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Guides",
         "groups": [
           
