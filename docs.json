@@ -25,6 +25,12 @@
               "physical_design/pd_inputs"
             ]
           },
+                    {
+            "group": "STA",
+            "pages": [
+              "sta/frequency_divider"
+            ]
+          },
           {
             "group": "LEC",
             "pages": [
