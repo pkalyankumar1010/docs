@@ -19,10 +19,24 @@
       {
         "tab": "VLSI",
         "groups": [
+                    {
+            "group": "EDA Tools",
+            "pages": [
+              "eda_tools/crack_eda_tool_license",
+              "eda_tools/decrypt_encrypted_tool_skills"
+            ]
+          },
           {
             "group": "Physical Design",
             "pages": [
-              "physical_design/pd_inputs"
+              "physical_design/pd_inputs",
+              "physical_design/floorplan"
+            ]
+          },
+                    {
+            "group": "Synthesis",
+            "pages": [
+              "synthesis/setup_time"
             ]
           },
                     {

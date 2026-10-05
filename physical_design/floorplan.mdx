@@ -1,0 +1,50 @@
+---
+title : Floorplan
+---
+# Floorplanning
+
+> Floorplanning is the process of arranging circuit blocks on a chip to meet performance, area, power, and routability goals. This page gives a practical overview and checklist for an efficient floorplanning flow.
+
+## Objectives
+
+- Place major functional blocks to minimize interconnect length and congestion.
+- Respect timing and power budgets by controlling block proximity and orientation.
+- Provide enough whitespace for routing and timing optimizations.
+
+## Key Concepts
+
+- **Macro**: Large pre-designed block (e.g., memory, I/O) placed early in the flow.
+- **Standard-cell area**: Regions filled with standard cells; keep contiguous for routability.
+- **Fence regions**: Constrain where certain blocks may be placed to reduce congestion.
+- **Pin access**: Ensure pins on macros are reachable for routing engines.
+
+## Practical Floorplanning Steps
+
+1. Identify macros and large hard-IP blocks and fix their aspect ratios.
+2. Create an initial placement sketch (logical-to-physical mapping) grouping related modules.
+3. Reserve space for power/clock distribution and I/O pads.
+4. Iterate: place macros → run congestion/timing analysis → adjust fences/regions.
+5. Finalize placement with legalization and a timing-driven detailed placement step.
+
+## Tips
+
+- Start with a coarse-grained plan: cluster modules by hierarchy and signal density.
+- Use whitespace strategically to give the router flexibility; avoid tightly packed islands.
+- Keep timing-critical paths short by colocating producer/consumer blocks.
+- Re-run congestion and timing checks after each significant placement change.
+
+## Quick Checklist
+
+- [ ] Macros placed and oriented
+- [ ] Power/ground channels reserved
+- [ ] Timing hotspots identified
+- [ ] Routing congestion within limits
+- [ ] Pin accessibility verified
+
+## Further Reading
+
+- Intel/ARM/EDA vendor application notes on floorplanning and macro placement.
+- Papers and tutorials on hierarchical floorplanning and congestion-driven placement.
+
+If you'd like, I can add diagrams, wiring heatmaps, or an example flow script next.
+

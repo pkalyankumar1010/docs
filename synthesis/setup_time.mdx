@@ -1,0 +1,65 @@
+
+export const meta = {
+	title: "Setup Time (Timing)",
+}
+
+# Setup Time Checks
+
+> This page explains setup-time checking (a core part of static timing analysis), how to interpret setup violations, and common strategies to fix them during synthesis and physical design.
+
+## What is Setup Time?
+
+- **Setup time** is the minimum time before the active clock edge that a data signal must be stable at a flip-flop input so it can be correctly captured.
+- A **setup violation** occurs when the data arrival time is later than the required time at the capture flop, i.e., arrival_time > required_time.
+- **Slack** = required_time - arrival_time. Positive slack is good; negative slack indicates a violation.
+
+## Key Terms
+
+- **Launch edge**: Clock edge where the source flop launches data.
+- **Capture edge**: Clock edge where the destination flop captures data.
+- **Data path delay**: Combinational delay between launch and capture flops.
+- **Clock uncertainty / jitter**: Reduces available timing budget; include in constraints.
+
+## Typical Flow for Setup Timing
+
+1. Define clocks and constraints (period, duty cycle, exceptions like false paths and multi-cycle paths).
+2. Run static timing analysis (STA) to compute arrival/required times and slack.
+3. Triage failing paths: identify top violators (setup slack most negative) and categorize by root cause (logic depth, routing delay, clock skew, or constraint error).
+4. Apply targeted fixes (see mitigation strategies below) and re-run STA.
+
+## Common Root Causes
+
+- Excessive logic depth between flops.
+- High fan-out nets or complex gates increasing delay.
+- Clock skew or inaccurate clock constraints.
+- Incorrect/missing false-path or multi-cycle path declarations.
+- Poor placement/routing (physical delay beyond estimated).
+
+## Mitigation Strategies
+
+- **Constraint fixes**: Ensure clocks and exceptions are defined correctly; add clock uncertainty only where appropriate.
+- **Logic restructuring**: Break long combinational chains by inserting registers (pipelining) or restructuring logic (common-subexpression extraction).
+- **Buffering / buffering removal**: Add or remove buffers to improve drive and delay characteristics.
+- **Gate sizing**: Upsize cells on critical paths to reduce delay (use with power/area budget in mind).
+- **Use faster standard-cells or multi-threshold libraries** for the worst paths.
+- **Placement changes**: Improve physical proximity for communicating flops; reduce interconnect delay by grouping related blocks.
+- **Retiming**: Move registers across combinational logic to balance path delays (tool-supported transformation).
+- **Clock network tuning**: Reduce skew or adjust clock tree synthesis constraints to increase margin.
+
+## Quick Checklist
+
+- [ ] Clocks defined correctly with periods and uncertainties
+- [ ] False paths and multi-cycle paths declared
+- [ ] STA run and top failing paths identified
+- [ ] Pipelining or retiming options evaluated for long paths
+- [ ] Gate sizing and cell-library tradeoffs considered
+- [ ] Physical placement/routing influence reviewed
+
+## Tips for Efficient Iteration
+
+- Focus on the hottest 5–10 paths first — they often account for most of the timing risk.
+- Use hierarchical and filtered STA reports to reduce noise when debugging large designs.
+- Automate constraint/test flows to re-run STA after each synthesis or placement iteration.
+
+If you'd like, I can add an example `synopsys dc` or `vivado` command snippet showing timing reports and how to extract failing paths, or insert an example flow for pipelining a long path.
+
