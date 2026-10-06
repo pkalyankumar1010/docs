@@ -1,0 +1,22 @@
+export const meta = {
+	title: "Common Synthesis Issues",
+}
+
+# Common Synthesis Issues
+
+## Improper Generic Logic Optimization (`syn_generic`)
+
+### Issue
+
+Generic logic optimization during `syn_generic` does not proceed as expected.
+
+### Reasons
+
+1. None of the outputs in the top module are being driven.
+2. Integrated clock-gating (ICG) cells are set to `dont_use` and `dont_touch`, even though they are loaded.
+
+### Solution
+```tcl
+set_db [get_db base_cells *ICG*] .dont_use true
+set_db [get_db base_cells *ICG*] .dont_touch true
+```
