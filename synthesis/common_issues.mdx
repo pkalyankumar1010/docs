@@ -12,9 +12,16 @@ Generic logic optimization during `syn_generic` does not proceed as expected.
 
 1. None of the outputs in the top module are being driven.
 2. Integrated clock-gating (ICG) cells are set to `dont_use` and `dont_touch`, even though they are loaded.
+3. Valid flip-flop cells are not available because `*dff*` cells are set to `dont_use` and `dont_touch`.
 
-### Solution
+### Solution for ICG cells
 ```tcl
 set_db [get_db base_cells *ICG*] .dont_use true
 set_db [get_db base_cells *ICG*] .dont_touch true
+```
+
+### Solution for flip-flop cells
+```tcl
+set_db [get_db base_cells *dff*] .dont_use true
+set_db [get_db base_cells *dff*] .dont_touch true
 ```
