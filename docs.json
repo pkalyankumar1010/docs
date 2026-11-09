@@ -178,6 +178,17 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Daily Tasks",
+        "groups": [
+          {
+            "group": "Daily Tasks",
+            "pages": [
+              "Plans/Daily-Tasks"
+            ]
+          }
+        ]
       }
     ],
     "global": {
