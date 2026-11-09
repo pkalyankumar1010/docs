@@ -37,7 +37,8 @@
             "group": "Synthesis",
             "pages": [
               "synthesis/common_issues",
-              "synthesis/setup_time"
+              "synthesis/setup_time",
+              "synthesis/clock_dividers"
             ]
           },
                     {
